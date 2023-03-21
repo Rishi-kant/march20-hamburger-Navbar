@@ -59,6 +59,10 @@
     justify-content: center;
   
   }
+  .cross-btn{
+    margin-left: 200px;
+    font-size: 30px;
+  }
   
   
   @media screen and (max-width: 760px) {

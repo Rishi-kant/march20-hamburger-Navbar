@@ -1,18 +1,40 @@
 
-import React from "react";
+import React,{useState} from "react";
 import  './Navbar.css'
 
+import {RxCross2} from 'react-icons/rx'
 export default function Navbar(){
+
+  const arr=["Home","Services","Contact","About Us"]
+  const[isopen,setIsOpen]=useState(false)
+  function handleClick(){
+    setIsOpen(true)
+  }
+  function hideIt(){
+    setIsOpen(false)
+  }
   return (
-  <>
-  <nav className='navigation'>
     
+  <> 
+ 
+   {isopen && 
+  <div>
+ { arr.map((element)=>{
+    return <h3>{element}</h3>
+  }
+ )}
+  </div>
+  }
+  
+
+  <nav className='navigation'>
      <h2>Onclick</h2>
-     <button className="hamburger">
+     { isopen ? <RxCross2 onClick={hideIt}  className="cross-btn"/>:<button className="hamburger" onClick={handleClick}>
        <div className='line'></div>
        <div  className='line'></div>
        <div  className='line'></div>
       </button>
+      }
       <div className='full-nav'>
        <div className='left-nav'>
          <h3>|</h3>
